@@ -1,12 +1,23 @@
 Package: rlinkedinads
-Title: What the Package Does (One Line, Title Case)
+Title: Load data from Linkedin Advertising API
 Version: 0.0.0.9000
 Authors@R: 
     person("Alexey", "Seleznev", , "selesnow@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-0410-7385"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Description: Get data from Linkedin Advertising API <https://learn.microsoft.com/en-us/linkedin/marketing/overview?view=li-lms-2023-10>.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
+Imports: 
+    cli,
+    dplyr,
+    httr2,
+    pbapply,
+    rappdirs,
+    rlang,
+    snakecase,
+    stringr,
+    tidyr,
+    urltools,
+    utils
