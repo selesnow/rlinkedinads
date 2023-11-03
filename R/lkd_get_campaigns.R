@@ -18,7 +18,8 @@ lkd_get_campaigns <- function(
     path_append = 'adCampaigns',
     params = list(
       q = 'search',
-      search.test = test
+      search.test = test,
+      count = 1000
       )
     ) %>%
     resp_body_json()
