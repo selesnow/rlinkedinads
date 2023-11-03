@@ -62,8 +62,7 @@
 #'     date_to          = '2023-09-30',
 #'     time_granularity = 'DAILY',
 #'     fields           = c(
-#'       'pivot',
-#'       'pivotValue',
+#'       'pivotValues',
 #'       'dateRange',
 #'       'clicks',
 #'       'impressions',
