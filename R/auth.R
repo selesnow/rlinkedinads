@@ -212,26 +212,65 @@ lkd_has_token <- function(
 }
 
 # setters -----------------------------------------------------------------
+#' Set App Client ID
+#' For more information see this [links](https://learn.microsoft.com/en-us/linkedin/marketing/quick-start?view=li-lms-2023-10#step-1-apply-for-api-access).
+#'
+#' @param client_id you linkedin APP ID
+#'
+#' @return no return value
+#' @export
 lkd_set_client_id <- function(client_id) {
   Sys.setenv('LKD_CLIENT_ID' = client_id)
 }
 
+#' Set App Client secret
+#' For more information see this [links](https://learn.microsoft.com/en-us/linkedin/marketing/quick-start?view=li-lms-2023-10#step-1-apply-for-api-access).
+#'
+#' @param client_secret Your APP secret
+#'
+#' @return no return value
+#' @export
 lkd_set_client_secret <- function(client_secret) {
   Sys.setenv('LKD_CLIENT_SECRET' = client_secret)
 }
 
+#' Set login for current R session
+#'
+#' @param login Your Linkedin login
+#'
+#' @return no return value
+#' @export
 lkd_set_login <- function(login) {
   Sys.setenv('LKD_LOGIN' = login)
 }
 
+#' Set own token cache path
+#'
+#' @param token_path Path to cache folder
+#'
+#' @return no return value
+#'
 lkd_set_token_path <- function(token_path) {
   Sys.setenv('LKD_TOKEN_PATH' = token_path)
 }
 
+#' Set Linkedin API version
+#' For dwtwils se next [link](https://learn.microsoft.com/en-us/linkedin/marketing/versioning?view=li-lms-2023-10)
+#'
+#' @param api_version Linkedin API version
+#'
+#' @return no return value
+#' @export
 lkd_set_api_version <- function(api_version) {
   options('lkd.api_version' = api_version)
 }
 
+#' Set Ad Account ID for R session
+#'
+#' @param account_id Id of your ad account
+#'
+#' @return no return value
+#' @export
 lkd_set_account_id <- function(account_id) {
   options('lkd.account_id' = account_id)
 }
