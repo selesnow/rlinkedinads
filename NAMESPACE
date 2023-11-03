@@ -3,6 +3,7 @@
 export(lkd_auth)
 export(lkd_get_accounts)
 export(lkd_get_ads_analytics)
+export(lkd_get_campaign_groups)
 export(lkd_get_campaigns)
 export(lkd_remove_token)
 export(lkd_set_account_id)
