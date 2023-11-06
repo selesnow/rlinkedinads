@@ -23,6 +23,11 @@ lkd_get_ad_account_users_by_accounts <- function(
   ) %>%
     resp_body_json()
 
+  if (length(resp$elements) == 0) {
+    cli::cli_alert_warning("You don't have adAccountUsers")
+    return(NULL)
+  }
+
   resp_data <- tibble(accounts = resp$elements) %>%
     unnest_wider('accounts') %>%
     unnest_wider('changeAuditStamps') %>%

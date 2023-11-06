@@ -13,6 +13,11 @@ lkd_get_accounts <- function(
   resp <- lkd_make_request('adAccounts', params = list(q = 'search', start = start, count = count)) %>%
           resp_body_json()
 
+  if (length(resp$elements) == 0) {
+    cli::cli_alert_warning("You don't have adAccounts")
+    return(NULL)
+  }
+
   resp_data <- tibble(acc = resp$elements) %>%
                unnest_wider('acc')
 

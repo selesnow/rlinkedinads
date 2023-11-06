@@ -126,7 +126,7 @@ lkd_get_ads_analytics <- function(
   sort_by_fields   <- match.arg(sort_by_fields)
   sort_by_order    <- match.arg(sort_by_order)
   sort_by_fields   <- if (sort_by_fields == "") NULL
-    sort_by_order  <- if (sort_by_order == "") NULL
+  sort_by_order    <- if (sort_by_order == "") NULL
   date_from        <- as.Date(date_from)
   date_to          <- as.Date(date_to)
 
@@ -155,6 +155,12 @@ lkd_get_ads_analytics <- function(
     'adAnalytics',
     params = params
   ) %>% resp_body_json()
+
+  # check result
+  if (length(resp$elements) == 0) {
+    cli::cli_alert_warning("You don't have any data!")
+    return(NULL)
+  }
 
   # parse result
   parsed_resp <- tibble(elements = resp$elements) %>%

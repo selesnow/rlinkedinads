@@ -28,6 +28,11 @@ lkd_get_campaigns <- function(
     ) %>%
     resp_body_json()
 
+  if (length(resp$elements) == 0) {
+    cli::cli_alert_warning("You don't have campaigns")
+    return(NULL)
+  }
+
   resp_data <- tibble(camp = resp$elements) %>%
     unnest_wider('camp') %>%
     unnest_wider('dailyBudget', names_sep = '_') %>%
