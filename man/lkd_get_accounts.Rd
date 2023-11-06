@@ -4,7 +4,12 @@
 \alias{lkd_get_accounts}
 \title{Get account list}
 \usage{
-lkd_get_accounts()
+lkd_get_accounts(start = 0, count = 1000)
+}
+\arguments{
+\item{start}{Integer, paggination. The index of the first item you want results for.}
+
+\item{count}{Integer, pagination. The number of items you want included on each page of results. There could be fewer items remaining than the value you specify.}
 }
 \value{
 tibble with account metadata

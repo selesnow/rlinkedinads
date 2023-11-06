@@ -4,22 +4,26 @@
 #' @param test Searches for campaigns based on test or non-test status:
 #'  * True: for test campaigns
 #'  * False: for non-test campaigns If not specified, searches for both test and non-test campaigns.
+#' @inheritParams lkd_get_accounts
 #'
 #' @return tibble with campaign metadata
 #' @export
 #'
 lkd_get_campaigns <- function(
     account_id = lkd_get_account_id(),
-    test = FALSE
+    test       = FALSE,
+    start      = 0,
+    count      = 1000
 ) {
 
   resp <- lkd_make_request(
     str_glue('adAccounts/{account_id}'),
     path_append = 'adCampaigns',
     params = list(
-      q = 'search',
+      q           = 'search',
       search.test = test,
-      count = 1000
+      start       = start,
+      count       = count
       )
     ) %>%
     resp_body_json()

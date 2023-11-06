@@ -4,7 +4,12 @@
 \alias{lkd_get_campaigns}
 \title{Get campaigns}
 \usage{
-lkd_get_campaigns(account_id = lkd_get_account_id(), test = FALSE)
+lkd_get_campaigns(
+  account_id = lkd_get_account_id(),
+  test = FALSE,
+  start = 0,
+  count = 1000
+)
 }
 \arguments{
 \item{account_id}{your Linkedin Ad Account ID}
@@ -14,6 +19,10 @@ lkd_get_campaigns(account_id = lkd_get_account_id(), test = FALSE)
 \item True: for test campaigns
 \item False: for non-test campaigns If not specified, searches for both test and non-test campaigns.
 }}
+
+\item{start}{Integer, paggination. The index of the first item you want results for.}
+
+\item{count}{Integer, pagination. The number of items you want included on each page of results. There could be fewer items remaining than the value you specify.}
 }
 \value{
 tibble with campaign metadata

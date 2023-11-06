@@ -2,9 +2,12 @@
 
 export(lkd_auth)
 export(lkd_get_accounts)
+export(lkd_get_accounts_by_authenticated_user)
+export(lkd_get_ad_account_users_by_accounts)
 export(lkd_get_ads_analytics)
 export(lkd_get_campaign_groups)
 export(lkd_get_campaigns)
+export(lkd_get_creatives)
 export(lkd_remove_token)
 export(lkd_set_account_id)
 export(lkd_set_api_version)
