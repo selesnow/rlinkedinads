@@ -249,7 +249,7 @@ lkd_set_login <- function(login) {
 #' @param token_path Path to cache folder
 #'
 #' @return no return value
-#'
+#' @export
 lkd_set_token_path <- function(token_path) {
   Sys.setenv('LKD_TOKEN_PATH' = token_path)
 }
