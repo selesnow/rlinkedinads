@@ -1,3 +1,5 @@
+. <- NULL
+
 lkd_make_request <- function(
   endpoint,
   path_append=NULL,
@@ -13,8 +15,21 @@ lkd_make_request <- function(
     req_url_query(!!!params) %>%
     req_headers(
       'Linkedin-Version' = getOption('lkd.api_version')
-    )%>%
+    ) %>%
+    req_error(body = lkd_error_body) %>%
     req_perform()
 
 }
 
+lkd_error_body <- function(resp) {
+
+  status <- resp %>% resp_body_json() %>% .$status
+
+  if (status >= 400) {
+    msg <- resp %>% resp_body_json() %>% .$message
+    dsc <- resp %>% resp_body_json() %>% .$errorDetails %>% .$inputErrors %>% .[[1]] %>% .$description
+    fld <- resp %>% resp_body_json() %>% .$errorDetails %>% .$inputErrors %>% .[[1]] %>% .$input %>% .$inputPath %>% .$fieldPath
+    str_c(msg, dsc, fld, sep = '\n')
+  }
+
+}

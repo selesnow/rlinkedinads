@@ -24,6 +24,11 @@ lkd_get_creatives <- function(
   ) %>%
     resp_body_json()
 
+  if (length(resp$elements) == 0) {
+    cli::cli_alert_warning("You don't have creatives")
+    return(NULL)
+  }
+
   resp_data <- tibble(criteria = resp$elements) %>%
     unnest_wider('criteria') %>%
     unnest_wider('content', names_sep = '_') %>%

@@ -38,4 +38,6 @@ lkd_get_campaigns <- function(
     unnest_wider('dailyBudget', names_sep = '_') %>%
     unnest_wider('unitCost', names_sep = '_')
 
+  resp_data
+
 }
