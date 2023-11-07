@@ -8,7 +8,7 @@ rlinkedinads - R пакет для работы с [Linkedin Advertising API](ht
 
 ## Установка
 
-Вы можете установить пакет rlinkedinads из [GitHub](https://github.com/rlinkedinads) с помощью:
+Вы можете установить пакет rlinkedinads из [GitHub](https://github.com/selesnow/rlinkedinads) с помощью:
 
 ``` r
 # install.packages("pak")

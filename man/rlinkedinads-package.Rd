@@ -4,9 +4,9 @@
 \name{rlinkedinads-package}
 \alias{rlinkedinads}
 \alias{rlinkedinads-package}
-\title{rlinkedinads: Load data from Linkedin Advertising API}
+\title{rlinkedinads: Load Data From 'Linkedin Advertising API'}
 \description{
-Get data from Linkedin Advertising API \url{https://learn.microsoft.com/en-us/linkedin/marketing/overview?view=li-lms-2023-10}.
+Get data from 'Linkedin Advertising API' \url{https://learn.microsoft.com/en-us/linkedin/marketing/overview?view=li-lms-2023-10}.
 }
 \author{
 \strong{Maintainer}: Alexey Seleznev \email{selesnow@gmail.com} (\href{https://orcid.org/0000-0003-0410-7385}{ORCID})

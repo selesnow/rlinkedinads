@@ -1,10 +1,10 @@
 Package: rlinkedinads
-Title: Load data from Linkedin Advertising API
+Title: Load Data From 'Linkedin Advertising API'
 Version: 0.0.0.9000
 Authors@R: 
     person("Alexey", "Seleznev", , "selesnow@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-0410-7385"))
-Description: Get data from Linkedin Advertising API <https://learn.microsoft.com/en-us/linkedin/marketing/overview?view=li-lms-2023-10>.
+Description: Get data from 'Linkedin Advertising API' <https://learn.microsoft.com/en-us/linkedin/marketing/overview?view=li-lms-2023-10>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
