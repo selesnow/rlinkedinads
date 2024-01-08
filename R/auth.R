@@ -180,7 +180,7 @@ lkd_inspect_token <- function(
 
   }
 
-  access_token$expires_at < (Sys.time() - (60 * 60 * 24 * 10))
+  (as.POSIXct(access_token$expires_at)  - (60 * 60 * 24 * 10)) < Sys.time()
 
 }
 

@@ -1,3 +1,7 @@
+# rlinkedinads 0.1.3
+
+* Fix token refresh process.
+
 # rlinkedinads 0.1.2
 
 * Patch for CRAN: Corrected package Description field.
