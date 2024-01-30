@@ -43,12 +43,12 @@
 #' @param sort_by_order String. The order of the results. Supported values include:
 #'  * ASCENDING
 #'  * DESCENDING
-#' @param facets List. Faceting parameter For more details see next [link](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/ads-reporting/ads-reporting?view=li-lms-2023-04&tabs=http#query-parameters-4).You must specify at least one of:
+#' @param ... Faceting parameter For more details see next [link](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/ads-reporting/ads-reporting?view=li-lms-2023-04&tabs=http#query-parameters-4).You must specify at least one of:
 #'  * shares - Match result by share facets. Defaults to empty.
-#'  * campaigns - Match result by campaign facets. Defaults to empty.
+#'  * campaigns - Match result by campaign facets. Defaults to empty. For example `campaigns = c('urn:li:sponsoredCampaign:253102116', 'urn:li:sponsoredCampaign:276103383')`.
 #'  * creatives - Match result by creative facets. Defaults to empty.
 #'  * campaignGroups - Match result by campaign group facets. Defaults to empty.
-#'  * accounts - Match result by sponsored ad account facets. Defaults to empty.
+#'  * accounts - Match result by sponsored ad account facets. Defaults to empty. For example `accounts = 'urn:li:sponsoredAccount:511009658'`.
 #'  * companies - Match result by company facets. Defaults to empty.
 #'
 #' @return tibble with report
@@ -71,10 +71,10 @@
 #'       'oneClickLeads',
 #'       'externalWebsiteConversions'
 #'     ),
-#'     facets    = list(
-#'       accounts  = 'urn:li:sponsoredAccount:511009658',
-#'       campaigns = "urn:li:sponsoredCampaign:253102116",
-#'       campaigns = "urn:li:sponsoredCampaign:229686963"
+#'     accounts  = 'urn:li:sponsoredAccount:511009658',
+#'     campaigns = c(
+#'       'urn:li:sponsoredCampaign:253102116',
+#'       'urn:li:sponsoredCampaign:276103383'
 #'     )
 #'  )
 #' }
@@ -109,14 +109,14 @@ lkd_get_ads_analytics <- function(
       'costInUsd',
       'oneClickLeads',
       'externalWebsiteConversions'
-      ),
+    ),
     date_from        = Sys.Date() - 31,
     date_to          = Sys.Date() - 1,
     time_granularity = c('DAILY', 'ALL', 'MONTHLY', 'YEARLY'),
     campaign_type    = NULL,
     sort_by_fields   = c("", 'COST_IN_LOCAL_CURRENCY', 'IMPRESSIONS', 'ONE_CLICK_LEADS', 'OPENS', 'SENDS', 'EXTERNAL_WEBSITE_CONVERSIONS'),
     sort_by_order    = c("", 'ASCENDING', 'DESCENDING'),
-    facets
+    ...
 ) {
 
   # check args
@@ -131,23 +131,21 @@ lkd_get_ads_analytics <- function(
   date_to          <- as.Date(date_to)
 
   # make query params
-  params <- append(
-    list(
-      q                     = 'analytics',
-      pivot                 = pivot,
-      timeGranularity       = time_granularity,
-      fields                = fields_str,
-      dateRange.start.day   = format(date_from, '%d'),
-      dateRange.start.month = format(date_from, '%m'),
-      dateRange.start.year  = format(date_from, '%Y'),
-      dateRange.end.day     = format(date_to  , '%d'),
-      dateRange.end.month   = format(date_to  , '%m'),
-      dateRange.end.year    = format(date_to  , '%Y'),
-      campaignType          = campaign_type,
-      sortBy.field          = sort_by_fields,
-      sortBy.order          = sort_by_order
-  ),
-     facets
+  params <- list(
+    q                     = 'analytics',
+    pivot                 = pivot,
+    timeGranularity       = time_granularity,
+    fields                = fields_str,
+    dateRange.start.day   = format(date_from, '%d'),
+    dateRange.start.month = format(date_from, '%m'),
+    dateRange.start.year  = format(date_from, '%Y'),
+    dateRange.end.day     = format(date_to  , '%d'),
+    dateRange.end.month   = format(date_to  , '%m'),
+    dateRange.end.year    = format(date_to  , '%Y'),
+    campaignType          = campaign_type,
+    sortBy.field          = sort_by_fields,
+    sortBy.order          = sort_by_order,
+    ...
   )
 
   # make request

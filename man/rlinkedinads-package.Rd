@@ -4,9 +4,9 @@
 \name{rlinkedinads-package}
 \alias{rlinkedinads}
 \alias{rlinkedinads-package}
-\title{rlinkedinads: Load Data From 'Linkedin Advertising API'}
+\title{rlinkedinads: Load Data from 'Linkedin Advertising API'}
 \description{
-Get data from 'Linkedin Advertising API' \url{https://learn.microsoft.com/en-us/linkedin/marketing/overview?view=li-lms-2023-10}.
+Get data from 'Linkedin Advertising API' \url{https://learn.microsoft.com/en-us/linkedin/marketing/overview?view=li-lms-2023-10}. You can load ad account hierarchy (accounts, users, campaign groups, campaigns and creatives) and also you can load ad analytics data from your 'Linkedin' Ad account.
 }
 \author{
 \strong{Maintainer}: Alexey Seleznev \email{selesnow@gmail.com} (\href{https://orcid.org/0000-0003-0410-7385}{ORCID})

@@ -79,8 +79,10 @@ report <- lkd_get_ads_analytics(
         'oneClickLeads',
         'externalWebsiteConversions'
       ),
-      facets = list(
-        accounts  = 'urn:li:sponsoredAccount:511009658'
+      accounts  = 'urn:li:sponsoredAccount:511009658', 
+      campaigns = c(
+        'urn:li:sponsoredCampaign:253102116', 
+        'urn:li:sponsoredCampaign:276103383'
       )
-    ) 
+) 
 ```

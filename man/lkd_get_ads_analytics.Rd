@@ -20,7 +20,7 @@ lkd_get_ads_analytics(
   sort_by_fields = c("", "COST_IN_LOCAL_CURRENCY", "IMPRESSIONS", "ONE_CLICK_LEADS",
     "OPENS", "SENDS", "EXTERNAL_WEBSITE_CONVERSIONS"),
   sort_by_order = c("", "ASCENDING", "DESCENDING"),
-  facets
+  ...
 )
 }
 \arguments{
@@ -82,13 +82,13 @@ lkd_get_ads_analytics(
 \item DESCENDING
 }}
 
-\item{facets}{List. Faceting parameter For more details see next \href{https://learn.microsoft.com/en-us/linkedin/marketing/integrations/ads-reporting/ads-reporting?view=li-lms-2023-04&tabs=http#query-parameters-4}{link}.You must specify at least one of:
+\item{...}{Faceting parameter For more details see next \href{https://learn.microsoft.com/en-us/linkedin/marketing/integrations/ads-reporting/ads-reporting?view=li-lms-2023-04&tabs=http#query-parameters-4}{link}.You must specify at least one of:
 \itemize{
 \item shares - Match result by share facets. Defaults to empty.
-\item campaigns - Match result by campaign facets. Defaults to empty.
+\item campaigns - Match result by campaign facets. Defaults to empty. For example \code{campaigns = c('urn:li:sponsoredCampaign:253102116', 'urn:li:sponsoredCampaign:276103383')}.
 \item creatives - Match result by creative facets. Defaults to empty.
 \item campaignGroups - Match result by campaign group facets. Defaults to empty.
-\item accounts - Match result by sponsored ad account facets. Defaults to empty.
+\item accounts - Match result by sponsored ad account facets. Defaults to empty. For example \code{accounts = 'urn:li:sponsoredAccount:511009658'}.
 \item companies - Match result by company facets. Defaults to empty.
 }}
 }
@@ -116,10 +116,10 @@ stat <- lkd_get_ads_analytics(
       'oneClickLeads',
       'externalWebsiteConversions'
     ),
-    facets    = list(
-      accounts  = 'urn:li:sponsoredAccount:511009658',
-      campaigns = "urn:li:sponsoredCampaign:253102116",
-      campaigns = "urn:li:sponsoredCampaign:229686963"
+    accounts  = 'urn:li:sponsoredAccount:511009658',
+    campaigns = c(
+      'urn:li:sponsoredCampaign:253102116',
+      'urn:li:sponsoredCampaign:276103383'
     )
  )
 }

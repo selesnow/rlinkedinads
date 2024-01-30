@@ -2,7 +2,7 @@
 
   # options
   op <- options()
-  op.lkd <- list(lkd.api_version = '202310')
+  op.lkd <- list(lkd.api_version = '202401')
 
   toset <- !(names(op.lkd) %in% names(op))
   if (any(toset)) options(op.lkd[toset])
