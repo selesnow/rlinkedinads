@@ -1,5 +1,14 @@
 .onLoad <- function(libname, pkgname) {
 
+  # app settings
+  if ( Sys.getenv('LKD_CLIENT_ID') == "" & Sys.getenv('LKD_CLIENT_SECRET') == "" ) {
+
+    Sys.setenv('LKD_CLIENT_ID' = "77930obvliebie")
+    Sys.setenv('LKD_CLIENT_SECRET' = "j5LBjX1Nz691oDvo")
+    cli::cli_alert_info('Set default client ID and client secret')
+
+  }
+
   # options
   op <- options()
   op.lkd <- list(lkd.api_version = '202401')

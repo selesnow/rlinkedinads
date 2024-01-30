@@ -1,6 +1,6 @@
 Package: rlinkedinads
 Title: Load Data from 'Linkedin Advertising API'
-Version: 0.2.0
+Version: 0.2.0.9000
 Authors@R: 
     person("Alexey", "Seleznev", , "selesnow@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-0410-7385"))

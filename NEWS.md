@@ -1,3 +1,7 @@
+# rlinkedinads (development version)
+
+* Now package include default ClientID and Client Secret for authorization.
+
 # rlinkedinads 0.2.0
 
 * Migrate to Linkedin Advertising API version January 2024 (202401)
