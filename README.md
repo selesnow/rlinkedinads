@@ -66,8 +66,8 @@ creatives       <- lkd_get_creatives()
 # Запрос аналитики
 report <- lkd_get_ads_analytics(
       pivot            = 'CAMPAIGN',
-      date_from        = '2023-01-01,
-      date_to          = '2023-06-30,
+      date_from        = '2023-01-01',
+      date_to          = '2023-06-30',
       time_granularity = 'DAILY',
       fields           = c(
         'pivotValues',
